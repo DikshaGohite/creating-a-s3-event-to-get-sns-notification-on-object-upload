@@ -30,4 +30,52 @@ Your configuration will look something like this:
 ![](5.PNG)
 
 Scetion 3: Creating a S3 event notification
+1. Navigate back to your S3 bucket and under properties scroll down and locate the Event notifications section
+!()[6.PNG]
+!()[7.PNG]
+
+2. Now select Create event name and event types you wish to receive notifications for
+!()[8.PNG]
+
+3. All that is left to do is select the destination where you want to send these events, select SNS topic we created earlier
+!()[9.PNG]
+
+4. But we are getting a error while saving changes that is because we didn't allow s3 to send event notifications to the SNS topic
+5. Lets modify the policy now, Navigate back to the SNS topic, choose edit and under "access policy" modify the permissions as below
+(MAKE SURE TO REPLACE Resource with arn of SNS topic, aws:SourceArn with arn of S3 bucket and aws:SourceAccount with your account id )
+   {
+    "Version": "2012-10-17",
+    "Id": "example-ID",
+    "Statement": [
+        {
+            "Sid": "Example SNS topic policy",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "s3.amazonaws.com"
+            },
+            "Action": [
+                "SNS:Publish"
+            ],
+            "Resource": "SNS-topic-ARN",
+            "Condition": {
+                "ArnLike": {
+                    "aws:SourceArn": "arn:aws:s3:*:*:bucket-name"
+                },
+                "StringEquals": {
+                    "aws:SourceAccount": "bucket-owner-account-id"
+                }
+            }
+        }
+    ]
+}                  
+
+  
+7. Now navigate back to s3 and try to save the changes, Your configuration is now setup
+8. Final step is to upload an object to an s3 bucket and test if you receive an email noticication as below:
+
+   
+
+
+   
+
 
