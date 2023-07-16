@@ -75,6 +75,7 @@ Scetion 3: Creating a S3 event notification
   
 7. Now navigate back to s3 and try to save the changes, Your configuration is now setup
 8. Final step is to upload an object to an s3 bucket and test if you receive an email noticication as below:
+![](10.PNG)
 
    
 
