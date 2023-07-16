@@ -40,9 +40,10 @@ Scetion 3: Creating a S3 event notification
 3. All that is left to do is select the destination where you want to send these events, select SNS topic we created earlier
 !()[9.PNG]
 
-4. But we are getting a error while saving changes that is because we didn't allow s3 to send event notifications to the SNS topic
-5. Lets modify the policy now, Navigate back to the SNS topic, choose edit and under "access policy" modify the permissions as below
-(MAKE SURE TO REPLACE Resource with arn of SNS topic, aws:SourceArn with arn of S3 bucket and aws:SourceAccount with your account id )
+4. But we are getting a error while saving changes that is because we didn't allow s3 to send event notifications to the SNS topic</br>
+5. Lets modify the policy now, Navigate back to the SNS topic, choose edit and under "access policy" modify the permissions as below</br>
+(MAKE SURE TO REPLACE Resource with arn of SNS topic, aws:SourceArn with arn of S3 bucket and aws:SourceAccount with your account id )</br>
+
    {
     "Version": "2012-10-17",
     "Id": "example-ID",
