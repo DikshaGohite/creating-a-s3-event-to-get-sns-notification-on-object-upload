@@ -23,22 +23,24 @@ Your configuration will look something like this:
 
 4. Now we have to create a subscription for this SNS topic so that we can receive notifications published to the topic
 5. In the above screenshot you will see a create "subscription button" select that
-6. In the new window select the Topic ARN (ARN of your SNS topic), protocol and Endpoint as below and hit the "Create Subscription" button at the bottom of the Page
+6. In the new window select the Topic ARN (ARN of your SNS topic), protocol and Endpoint as below and hit the "Create Subscription" button at the bottom of the Page</br>
+
 ![](4.PNG)
 
-7. The last thing now left to do is confirming the subscription, check your email from Amazon and confirm subscription
+7. The last thing now left to do is confirming the subscription, check your email from Amazon and confirm subscription</br>
+
 ![](5.PNG)
 
 Scetion 3: Creating a S3 event notification
-1. Navigate back to your S3 bucket and under properties scroll down and locate the Event notifications section
-!()[6.PNG]
-!()[7.PNG]
+1. Navigate back to your S3 bucket and under properties scroll down and locate the Event notifications section</br>
+![](6.PNG)
+![](7.PNG)
+![](8.PNG)
 
-2. Now select Create event name and event types you wish to receive notifications for
-!()[8.PNG]
 
-3. All that is left to do is select the destination where you want to send these events, select SNS topic we created earlier
-!()[9.PNG]
+2. Now select Create event name and event types you wish to receive notifications for</br>
+3. All that is left to do is select the destination where you want to send these events, select SNS topic we created earlier</br>
+![](9.PNG)
 
 4. But we are getting a error while saving changes that is because we didn't allow s3 to send event notifications to the SNS topic</br>
 5. Lets modify the policy now, Navigate back to the SNS topic, choose edit and under "access policy" modify the permissions as below</br>
